@@ -1,0 +1,72 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+env:
+  # Setting an environment variable with the value of a configuration variable
+   env_var: ${{ vars.ENV_CONTEXT_VAR }}
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: docker-compose -f docker-compose.yml build --no-cache
+
+
+    - name: Save Docker image
+      run: docker save -o reportingportalweb.tar  ${{vars.DOCKER_IMAGE}}
+
+    - name: Change file permission 
+      run:  chmod 644 reportingportalweb.tar
+      env:
+        DOCKER_CLI_EXPERIMENTAL: enabled
+        DOCKER_CONTENT_TRUST: 0
+
+    - name: Remove Direcory if it exist 
+      uses: alinz/ssh-scp-action@master
+      with:
+        key: ${{secrets.SERVER_SSH_KEY}}
+        host: ${{vars.SERVER_HOST}} 
+        port: ${{secrets.SERVER_SSH_PORT}}
+        user: ${{vars.SERVER_USERNAME}}
+
+        scp: |
+
+        ssh_after: |
+           sudo rm -rf /home/NDEReportingPortal-Web || true
+
+    - name: Deploy
+      uses: alinz/ssh-scp-action@master
+      with:
+        key: ${{secrets.SERVER_SSH_KEY}}
+        host: ${{vars.SERVER_HOST}} 
+        port: ${{secrets.SERVER_SSH_PORT}}
+        user: ${{vars.SERVER_USERNAME}}
+         
+        scp: |
+            *  ${{vars.SERVER_USERNAME}}@${{vars.SERVER_HOST}}:/home/NDEReportingPortal-Web
+            # then run these commands
+        ssh_after: |
+            sudo docker-compose -f /home/NDEReportingPortal-Web/docker-compose.yml down
+            sudo docker rmi $(sudo docker images -q reportingportalweb:*)  
+            sudo docker load -i /home/NDEReportingPortal-Web/reportingportalweb.tar
+            sudo docker-compose -f /home/NDEReportingPortal-Web/docker-compose.yml up -d
+
+
+
+    
+
+
+
+      
+      
+  
+    

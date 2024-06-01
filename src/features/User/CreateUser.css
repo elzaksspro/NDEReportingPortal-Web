@@ -1,0 +1,45 @@
+
+.create-user-card {
+    min-width: 30%;
+    max-width: 40%;
+    margin: 10% auto;
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+.createUserForm {
+    max-width: 500px;
+    margin:  auto;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formControl {
+    margin-bottom: 20px;
+}
+
+.backButton {
+    margin-left: 10px;
+    background-color: green;
+
+}
+/* CreateUserPage.css */
+button[type="submit"] {
+    background-color: green;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust height as needed */
+  }
+  
+  .form {
+    width: 300px; /* Adjust width as needed */
+  }
+  

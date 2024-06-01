@@ -1,0 +1,65 @@
+/* DepartmentManagement.css */
+#DepartmentManagement {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px; /* Adjust based on your layout needs */
+    margin: 20px auto; /* Centering the box */
+    padding: 20px;
+    background-color: white; /* Or any color based on your design */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    border-radius: 10px; /* Rounded corners for modern look */
+}
+
+.createDepartmentForm,
+.departmentListContainer {
+    margin-bottom: 20px; /* Space between form and list */
+}
+
+/* Additional styles */
+.DepartmentManagement {
+    width: 100%;
+    padding: 20px;
+}
+
+.EditDepartmentForm {
+    width: 100%;
+}
+
+.DepartmentListTable {
+    width: 100%;
+}
+
+.DepartmentListTable th,
+.DepartmentListTable td {
+    padding: 12px;
+}
+
+.DepartmentListTable th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    text-align: left;
+}
+
+.DepartmentListTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.DepartmentListTable tr:hover {
+    background-color: #e0e0e0;
+}
+
+.EditDepartmentForm .MuiTextField-root {
+    margin-bottom: 16px;
+}
+
+.EditDepartmentForm .MuiButton-root {
+    margin-right: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #DepartmentManagement {
+        flex-direction: column;
+        padding: 10px;
+    }
+}

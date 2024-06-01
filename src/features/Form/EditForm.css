@@ -1,0 +1,23 @@
+
+.createFormContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .formTitle {
+    margin-bottom: 20px;
+  }
+  
+  .createFormForm {
+    width: 100%;
+  }
+  
+  .createFormForm .MuiTextField-root {
+    margin-bottom: 20px;
+  }
+  
+  .createButton {
+    margin-top: 20px;
+  }
+  

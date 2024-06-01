@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+    project.web:
+        container_name: reportingportal-web-container
+        image: reportingportalweb:latest 
+        build: 
+          context: .
+          dockerfile: Dockerfile
+        ports:
+          - "3000:80"
+        volumes:
+          - .:/app
+        networks:
+          reportingportal-net:
+            ipv4_address: 173.19.0.6
+          
+
+networks:
+  reportingportal-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 173.19.0.0/16

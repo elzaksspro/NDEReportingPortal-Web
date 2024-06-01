@@ -1,0 +1,60 @@
+/* UpdateProfile.css */
+
+/* Styling for the tabs */
+.update-profile-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+  
+/* Styling for each tab */
+.update-profile-tab {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+margin: auto 50%;
+}
+  
+.update-profile-tab:hover {
+    background-color: #ddd;
+}
+  
+/* Styling for the active tab */
+.update-profile-tab.active {
+    background-color: #fff;
+    border-bottom: 2px solid rgb(124, 172, 124);
+}
+  
+/* Styling for the tab content */
+.update-profile-tab-content {
+    display: none;
+
+}
+
+/* Displaying the active tab content */
+.update-profile-tab-content.active {
+    display: block;
+}
+
+/* Styling for the cards */
+.update-profile-form-card,
+.update-password-form-card {
+    max-width: 800px; /* Adjust max-width as needed */
+    min-width: 500px; /* Adjust min-width as needed */
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+
+}
+
+/* Styling for the form elements */
+.form-group {
+    margin-bottom: 20px; /* Add spacing between form elements */
+}
+
+/* Styling for the submit button */
+.submit-button {
+    margin-top: 20px; /* Add spacing above the submit button */
+}

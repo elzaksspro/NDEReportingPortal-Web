@@ -1,0 +1,29 @@
+[
+ 
+ 
+  {
+    "text": "Submissions Management",
+    "icon": "AssignmentIcon",
+    "href": "/submissions",
+    "allowedRoles": ["SuperAdmin","Administrator","FormManager"] 
+  },
+  {
+    "text": "Forms Management",
+    "icon": "AssignmentIcon",
+    "href": "/forms",
+    "allowedRoles": ["SuperAdmin","Administrator",
+    
+    "FormManager"]   },
+  {
+    "text": "Users Management",
+    "icon": "GroupIcon",
+    "href": "/users",
+    "allowedRoles": ["SuperAdmin","Administrator"]
+  },
+  {
+    "text": "Department",
+    "icon": "BusinessIcon",
+    "href": "/department",
+    "allowedRoles": ["SuperAdmin"]
+  }
+]

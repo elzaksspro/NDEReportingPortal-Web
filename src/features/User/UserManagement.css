@@ -1,0 +1,66 @@
+#UserManagement{
+
+    margin-top: 2em;
+
+}
+
+#createUserButton
+{
+
+float: right;
+padding: 2em auto;
+background-color: green ;
+
+
+}
+
+
+/* UserManagement.css */
+#UserManagement {
+    max-width: 1500px; /* Set maximum width for the management area */
+    margin: 20px auto; /* Center the content */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to elevate the card */
+    background: white; /* Set a white background */
+    border-radius: 8px; /* Round the corners */
+}
+
+#UserManagement .userListFilter {
+    margin-bottom: 20px; /* Space below the filter */
+    width: 100%; /* Full width */
+}
+
+.userListTable {
+    margin-top: 20px; /* Space above the table */
+    background-color: #f5f5f5; /* Light grey background for the table */
+    border-radius: 8px; /* Round the corners of the table */
+    overflow: hidden; /* Ensures the rounded corners contain the table rows */
+}
+
+.userListTable th,
+.userListTable td {
+    padding: 16px; /* Padding inside table cells */
+    text-align: left; /* Align text to the left */
+}
+
+.userListTable th {
+    background-color: #e0e0e0; /* Slightly darker grey for header */
+}
+
+.userListTable tr:nth-child(odd) {
+    background-color: #fafafa; /* Zebra-striping for rows */
+}
+
+.userListTable tr:hover {
+    background-color: #e0f7fa; /* Light blue background for hover */
+}
+
+#UserManagement #createUserButton {
+    margin-bottom: 20px; /* Space below the create user button */
+    background-color: #4CAF50; /* Green background for the button */
+    color: white; /* White text for the button */
+}
+
+#UserManagement #createUserButton:hover {
+    background-color: #388E3C; /* Darker green on hover */
+}

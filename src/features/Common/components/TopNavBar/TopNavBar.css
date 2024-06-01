@@ -1,0 +1,67 @@
+/* TopNavBar.css */
+.topnav-right {
+  margin-left: auto;
+}
+
+.topnav-search {
+  position: relative;
+}
+
+.topnav-search-icon {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  z-index: 1;
+}
+
+.topnav-input-base {
+  padding-left: 30px;
+}
+
+/* Remove padding to fit the image properly */
+.topnav-profile-button {
+  padding: 0;
+}
+
+/* Style for the image used instead of Mui Avatar */
+.topnav-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Adjust these as needed */
+.app-bar {
+  background-color: inherit;
+  color: black;
+  box-shadow: none;
+}
+
+.toolbar {
+  min-height: 64px;
+}
+
+.menu-icon-button {
+  margin-right: 16px;
+}
+
+/* Add more styles as needed */
+/* TopNavBar.css */
+.customMenuPaper {
+  width: 10%; /* Adjust width as needed */
+  margin-top: 0.5em; /* Adjust this based on your Navbar's height */
+  margin-right: -1em;
+
+}
+
+.topnav-right {
+  margin-left: 1em auto ;
+}
+
+.topnav-element
+{
+    color: white;
+    padding: 0.5em;
+    border-spacing: 1em;
+
+}

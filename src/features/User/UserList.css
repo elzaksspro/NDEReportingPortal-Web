@@ -1,0 +1,29 @@
+.userListTable {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.actionButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.actionButtons button {
+    min-width: auto;
+}
+
+.linkEdit {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.search-field {
+    margin-bottom: 20px;
+}

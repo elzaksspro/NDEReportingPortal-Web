@@ -1,0 +1,55 @@
+/* FormBuilder.css */
+
+/* Style the main container for some padding and to ensure it fills the viewport vertically if needed */
+.form-builder-container {
+  margin-top: 0.1em; /* Adjust the margin from the top of the page */
+  min-height: 100vh;
+}
+
+/* Additional styling for widgets column for visual distinction or alignment */
+.add-widgets {
+  padding: 0.1em;
+  border-right: 2px solid #f0f0f0; /* Light border to visually separate from the form designer */
+}
+
+/* Ensure that the FormTabs have a clear visual separation from the FormDesigner/FormPreview */
+.tab-content {
+  margin-top: 0.5em;
+  padding: 1em;
+  border: 0.5em solid #ddd; /* Light border around the active tab content */
+  background-color: #fff; /* Optional: sets a background color for the content area */
+  border-radius: 4px; /* Soften edges */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  max-height: 100vh; /* Limit the height of the content area to prevent it from taking up too much space */
+}
+
+/* Specific styles for FormDesigner and FormPreview for consistency */
+.form-designer, .form-preview {
+  margin-top: 1em;
+}
+
+/* If there's specific styling needed for active/inactive states or transitions */
+.tab-content > div {
+  display: none; /* Hide all by default */
+}
+
+.tab-content > div.active {
+  display: block; /* Only show the active tab content */
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px; /* Adjust margin as needed */
+  max-width: 25em;
+  margin-left: 25em ;
+}
+
+
+.button-container button {
+  color: green;
+}
+
+.button-container button:hover {
+  background-color: rgb(143, 215, 143);
+}

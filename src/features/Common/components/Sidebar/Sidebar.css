@@ -1,0 +1,64 @@
+
+
+  /* Sidebar.css */
+.drawer {
+  width: 240px;
+  flex-shrink: 0;
+  background-color: black;
+
+
+}
+
+
+.logo-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+/* Adjust padding, height, and other styles as needed */
+.logo-box {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+
+.drawer .MuiDrawer-paper {
+  width: 240px;
+  box-sizing: border-box;
+}
+
+
+
+
+.list-item {
+  margin-top: 8px;
+  border-radius: 4px;
+  color: green;
+  transition: background-color 0.3s ease;
+}
+
+.list-item:hover {
+  background-color: rgb(201, 255, 201); /* Light green for hover */
+}
+
+.list-item.active {
+  background-color: green; /* Darker green for active */
+  color: white;
+}
+
+.list-item-icon {
+  color: green /* Change icon color when active if needed */
+}
+.list-item-icon.active {
+  color: white /* Change icon color when active if needed */
+}
+
+
+#logoutButton{
+  color: white /* Change icon color when active if needed */
+
+}
+
+

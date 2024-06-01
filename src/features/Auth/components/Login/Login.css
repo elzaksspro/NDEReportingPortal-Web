@@ -1,0 +1,59 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+
+  /* Use a solid color instead of an image for the background */
+  /* background-color: #e6ffeb; /* This is a blue color, similar to the Bootstrap primary color; adjust as needed */
+
+  background-color: #f4f7f6; /* Light grey background */
+
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px; /* Adjust the width of the card as necessary */
+  padding: 20px;
+  margin: auto;
+  background: hsl(0, 0%, 100%); /* Card background as white */
+  border-radius: 0.25rem; /* Bootstrap-like rounding */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for depth */
+}
+
+
+.login-logo 
+{
+width: 100px; /* Adjust based on your logo size, ensure it's a square for a perfect circle */
+height: 100px; /* Make this equal to the width */
+margin: 0 auto 20px auto; /* Center the logo */
+display: block;
+border-radius: 50%; /* This makes the square a circle */
+}
+
+.app-name {
+  margin-bottom: 20px; /* Space below the app name */
+}
+
+input[type="email"], input[type="password"], input[type="text"] {
+  width: calc(100% - 20px); /* Adjust width to account for padding */
+  padding: 10px;
+  margin-bottom: 15px; /* Space between inputs */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #066d0b; /* Primary button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0d5802; /* Darker shade on hover */
+}

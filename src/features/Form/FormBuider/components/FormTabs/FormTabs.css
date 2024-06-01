@@ -1,0 +1,42 @@
+/* FormTabs.css */
+
+/* Reset default list styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Material Design tab bar */
+.mdc-tab-bar {
+  display: flex;
+  border-bottom: 1px solid #ccc; /* Add a border at the bottom */
+}
+
+.mdc-tab {
+  flex: 1; /* Make tabs fill available space */
+}
+
+/* Tab link styles */
+.mdc-tab__link {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.mdc-tab__link:hover {
+  background-color: rgb(157, 231, 157); /* Light gray on hover */
+}
+
+/* Active tab styles */
+.mdc-tab--active .mdc-tab__link {
+  background-color: #6fff4a; /* Change background color for active tab */
+  color: #fff; /* Change text color for active tab */
+}

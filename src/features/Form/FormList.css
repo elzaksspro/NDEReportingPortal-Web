@@ -1,0 +1,36 @@
+.formListTable {
+    width: 100%;
+    margin-top: 20px;
+}
+/* Add a new class for the green button */
+.green-button {
+    background-color: #4caf50; /* Green */
+    color: white;
+}
+
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.actionButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.actionButtons button {
+    min-width: auto;
+}
+
+.linkEdit {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.search-field {
+    margin-bottom: 20px;
+}

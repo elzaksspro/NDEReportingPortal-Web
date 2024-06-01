@@ -1,0 +1,67 @@
+
+.activation-card {
+    max-width: 800px; /* Adjust based on preference */
+    margin: 10% auto;
+    padding: 1%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.activation-content {
+    margin: 20px 0;
+}
+
+.activation-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+    gap: 20px; /* Adjust space between grid items */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-button {
+    grid-column: span 2; /* Makes the submit button span two columns */
+    padding: 10px 20px;
+    background-color: #89d48d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #89d48d;
+}
+
+.error-message {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .activation-form {
+        grid-template-columns: 1fr; /* Stack elements in one column on smaller screens */
+    }
+
+    .submit-button {
+        grid-column: span 1; /* Reset the submit button to span one column on smaller screens */
+    }
+}
+
+

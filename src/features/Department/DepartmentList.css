@@ -1,0 +1,18 @@
+.userListTable {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.createUserButton {
+    margin: 20px 0;
+}
+
+.linkEdit {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.actionCell {
+    text-align: right;
+}

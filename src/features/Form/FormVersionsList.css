@@ -1,0 +1,5 @@
+.form-versions-container {
+    max-height: 100vh; /* Adjust as needed */
+    overflow-y: auto;
+  }
+  

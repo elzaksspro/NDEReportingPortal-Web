@@ -1,0 +1,59 @@
+#FormManagement {
+    margin-top: 2em;
+}
+
+#createFormButton {
+    float: right;
+    padding: 2em auto;
+    background-color: green;
+}
+
+/* FormManagement.css */
+#FormManagement {
+    max-width: 1500px; /* Set maximum width for the management area */
+    margin: 20px auto; /* Center the content */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to elevate the card */
+    background: white; /* Set a white background */
+    border-radius: 8px; /* Round the corners */
+}
+
+#FormManagement .formListFilter {
+    margin-bottom: 20px; /* Space below the filter */
+    width: 100%; /* Full width */
+}
+
+.formListTable {
+    margin-top: 20px; /* Space above the table */
+    background-color: #f5f5f5; /* Light grey background for the table */
+    border-radius: 8px; /* Round the corners of the table */
+    overflow: hidden; /* Ensures the rounded corners contain the table rows */
+}
+
+.formListTable th,
+.formListTable td {
+    padding: 16px; /* Padding inside table cells */
+    text-align: left; /* Align text to the left */
+}
+
+.formListTable th {
+    background-color: #e0e0e0; /* Slightly darker grey for header */
+}
+
+.formListTable tr:nth-child(odd) {
+    background-color: #fafafa; /* Zebra-striping for rows */
+}
+
+.formListTable tr:hover {
+    background-color: #e0f7fa; /* Light blue background for hover */
+}
+
+#FormManagement #createFormButton {
+    margin-bottom: 20px; /* Space below the create form button */
+    background-color: #4CAF50; /* Green background for the button */
+    color: white; /* White text for the button */
+}
+
+#FormManagement #createFormButton:hover {
+    background-color: #388E3C; /* Darker green on hover */
+}

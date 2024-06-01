@@ -1,0 +1,19 @@
+/* QuestionControls.css */
+
+.question-controls {
+  text-align: right; /* Align buttons to the right */
+}
+
+.control-btn {
+  display: inline-block; /* Display buttons inline */
+  margin-left: 8px; /* Add left margin between buttons */
+  color: #757575;
+}
+
+.control-btn:first-child {
+  margin-left: 0; /* Remove margin from the first button */
+}
+
+.control-btn:hover {
+  color: #000;
+}
