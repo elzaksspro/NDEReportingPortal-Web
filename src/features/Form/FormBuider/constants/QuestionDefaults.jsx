@@ -51,11 +51,11 @@ const questionDefaults = {
     label: "Question Label",
     identifier: "Question identifier"
   },
- /**  file: {
+   file: {
     label: "Question Label",
     identifier: "Question identifier"
   }
-  **/
+  
 };
 
 export default questionDefaults;

@@ -32,18 +32,25 @@ const questionWidgets = [
     icon: 'bi bi-ui-checks-grid',
   },
 
-  {
-    type: 'geopoint',
-    label: 'GeoPoint',
-    icon: 'bi bi-geo-alt',
-  },
+ 
 
   {
     type: 'date',
     label: 'Date',
     icon: 'bi bi-calendar',
   },
+  {
+    type: 'file',
+    label: 'File',
+    icon: 'bi bi-file-earmark',
+  }
  
+  /**
+    {
+    type: 'geopoint',
+    label: 'GeoPoint',
+    icon: 'bi bi-geo-alt',
+  },
     {
     type: 'image',
     label: 'Image',
@@ -60,13 +67,9 @@ const questionWidgets = [
     label: 'Video',
     icon: 'bi bi-camera-video',
   },  
+   */
+ 
   
- /** {
-    type: 'file',
-    label: 'File',
-    icon: 'bi bi-file-earmark',
-  },
-  */
   
   // Add more question types as needed
 ];

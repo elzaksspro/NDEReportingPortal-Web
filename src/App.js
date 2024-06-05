@@ -11,6 +11,9 @@ import {ActivateProfile,UpdateProfile} from './features/Profile';
 import {DepartmentManagement} from './features/Department';
 import {FormManagement,CreateForm,EditForm,FormDetails} from './features/Form';
 
+import {DataCaptureFormManagement,DataCapture} from './features/DataCapture';
+
+
 import {SubmissionManagement,} from './features/Submission';
 
 
@@ -37,10 +40,18 @@ function App() {
           <Route path="/profile/update/:userId" element=
           {<PrivateRoute><MainLayout><UpdateProfile /></MainLayout></PrivateRoute>} />
                       
-          <Route path="/" element={<PrivateRoute><MainLayout><SubmissionManagement /></MainLayout></PrivateRoute>} />
+          <Route path="/" element={<PrivateRoute><MainLayout><DataCaptureFormManagement /></MainLayout></PrivateRoute>} />
 
 
           <Route path="/submissions" element={<PrivateRoute><MainLayout><SubmissionManagement /></MainLayout></PrivateRoute>} />
+
+          
+          
+          <Route path="/datacapture" element={<PrivateRoute><MainLayout><DataCaptureFormManagement /></MainLayout></PrivateRoute>} />
+
+          <Route path="datacapture/:formId" element={<PrivateRoute><MainLayout><DataCapture /></MainLayout></PrivateRoute>} />
+
+
 
           <Route path="/forms" element={<PrivateRoute><MainLayout><FormManagement /></MainLayout></PrivateRoute>} />
           <Route path="forms/create" element={<PrivateRoute><MainLayout><CreateForm /></MainLayout></PrivateRoute>} />

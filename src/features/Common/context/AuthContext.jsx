@@ -19,6 +19,9 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
+
+             // Clear existing local storage
+            localStorage.clear();
             const authUrl = getBaseUrl()+`/auths/login`;
             const response = await axios.post(authUrl, { username, password });
 
@@ -75,11 +78,7 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated(false); // Set isAuthenticated to false in state
         setUserId('');
         setRole(''); // Clear role from state
-        localStorage.removeItem('token');
-        localStorage.removeItem('refreshToken');
-        localStorage.removeItem('userId');
-        localStorage.removeItem('role'); // Clear role from localStorage
-        localStorage.setItem('isAuthenticated', 'false'); // Set isAuthenticated to false in localStorage
+        localStorage.clear();
         delete axios.defaults.headers.common['Authorization'];
     };
 

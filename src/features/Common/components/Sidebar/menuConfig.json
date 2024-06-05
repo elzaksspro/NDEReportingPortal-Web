@@ -2,6 +2,12 @@
  
  
   {
+    "text": "Data Capture",
+    "icon": "AssignmentIcon",
+    "href": "/datacapture",
+    "allowedRoles": ["SuperAdmin","Administrator","FormManager","DataCollector"] 
+  },
+  {
     "text": "Submissions Management",
     "icon": "AssignmentIcon",
     "href": "/submissions",
@@ -12,7 +18,6 @@
     "icon": "AssignmentIcon",
     "href": "/forms",
     "allowedRoles": ["SuperAdmin","Administrator",
-    
     "FormManager"]   },
   {
     "text": "Users Management",

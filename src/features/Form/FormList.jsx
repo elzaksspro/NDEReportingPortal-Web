@@ -86,21 +86,7 @@ function FormList({ forms, setForms,onPageChange }) {
 
     return (
         <div>
-            
-            <TextField
-                select
-                label="Filter by Status"
-                value={filter}
-                onChange={handleFilterChange}
-                variant="outlined"
-                fullWidth
-                className="filter-field"
-            >
-                <MenuItem value="all">All</MenuItem>
-                <MenuItem value="0">Draft</MenuItem>
-                <MenuItem value="1">Published</MenuItem>
-                <MenuItem value="2">Archived</MenuItem>
-            </TextField>
+       
 
             <TextField
                 label="Search by Form Name"

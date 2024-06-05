@@ -29,19 +29,7 @@ const QuestionControls = ({
     }
   };
 
-  /** 
-  const handleDeleteClick = () => {
-    const isConfirmed = window.confirm('Are you sure you want to delete this question?');
-    if (isConfirmed) {
-      const updatedFormSchema = {
-        ...formSchema,
-        questions: formSchema.questions.filter((_, index) => index !== selectedQuestionIndex)
-      };
-      setFormSchema(updatedFormSchema);
-      setSelectedQuestionIndex(null);
-    }
-  };
-*/
+
   const handleMoveUpClick = () => {
     if (selectedQuestionIndex > 0) {
       const updatedFormSchema = {
