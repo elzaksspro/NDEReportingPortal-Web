@@ -29,9 +29,13 @@ const FormBuilder = ({ formVersion }) => { // Receive formVersion object as prop
       setFormSchema(JSON.parse(storedSchema));
     }
     else{
-      setFormSchema(JSON.parse(formVersion.jsonContent));
+      //setFormSchema(JSON.parse(formVersion.jsonContent));
 
-
+      const parsedContent = JSON.parse(formVersion.jsonContent);
+      setFormSchema({
+        ...parsedContent,
+        questions: Array.isArray(parsedContent.questions) ? parsedContent.questions : [],
+      });
     }
 
     // Update local storage whenever the form schema changes (excluding initial load)

@@ -26,7 +26,7 @@ const FormDesigner = ({
       <h6 className="form-designer-title">Designer Mode</h6>
 
       <div className="question-cards-container">
-        {formSchema.questions.map((question, index) => (
+        {Array.isArray(formSchema.questions) && formSchema.questions.map((question, index) => (
           <div key={index} className="question-card">
             <div className="card-body">
               <QuestionEditor
