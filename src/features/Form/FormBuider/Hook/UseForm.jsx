@@ -11,7 +11,9 @@ export const useCurrentTab = () => {
 
 // Custom hook for managing form schema
 export const useFormSchema = (FormName, formId, versionId) => {
-  const [formSchema, setFormSchema] = useState({ title: {FormName}, questions: [] });
+  const [formSchema, setFormSchema] = useState({ title:FormName , questions: [] });
+
+  
 
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
 

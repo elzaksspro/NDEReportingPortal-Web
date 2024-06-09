@@ -1,28 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, TextField, MenuItem } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, TextField } from '@mui/material';
 import Swal from 'sweetalert2';
-import './FormList.css'; // Ensure this is the correct path to your CSS
 import axios from 'axios';
 import { getBaseUrl } from '@/features/Common/Utils/apiutils';
+import './FormList.css'; // Ensure this is the correct path to your CSS
 
-function FormList({ forms, setForms,onPageChange }) {
+function FormList({ forms, setForms, onPageChange }) {
     const itemsPerPage = 10; // Number of items per page
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState('');
-    const [filter, setFilter] = useState('all'); // Default filter
 
-    const handleFilterChange = (event) => {
-        setFilter(event.target.value);
-    };
-
-    const filteredForms = forms.filter(form => {
-        if (filter === 'all') {
-            return true; // Return all forms
-        } else {
-            return form.status === parseInt(filter); // Filter forms based on status
-        }
-    }).filter(form =>
+    const filteredForms = forms.filter(form =>
         form.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -33,17 +22,15 @@ function FormList({ forms, setForms,onPageChange }) {
 
     const currentForms = filteredForms.slice(startIndex, endIndex);
 
-    const fetchForms = async () => { // Changed fetchUsers to fetchForms
+    const fetchForms = async () => {
         try {
-            const response = await axios.get(getBaseUrl()+`/Forms`); // Changed Profiles to Forms
+            const response = await axios.get(getBaseUrl() + `/Forms`);
             if (response.data && response.data.status) {
-                setForms(response.data.data.items.$values); // Adjust based on actual API response
+                setForms(response.data.data.items.$values);
             }
             onPageChange(currentPage);
-
-
         } catch (error) {
-            console.error('Failed to fetch forms:', error); // Changed users to forms
+            console.error('Failed to fetch forms:', error);
         }
     };
 
@@ -54,30 +41,10 @@ function FormList({ forms, setForms,onPageChange }) {
 
     const handleStatusChange = async (formId, newStatus) => {
         try {
-          
-            await axios.put(getBaseUrl()+`/Forms/${formId}/status`,
-             { formId:formId, newStatus: newStatus });
-            let statusLabel = '';
-            switch (newStatus) {
-
-                case 0:
-                    statusLabel = 'Draft';
-                    break;
-                case 1:
-                    statusLabel = 'Published';
-                    break;
-                case 2:
-                    statusLabel = 'Archived';
-                    break;
-                default:
-                    statusLabel = '';
-            }
+            await axios.put(getBaseUrl() + `/Forms/${formId}/status`, { formId, newStatus });
+            let statusLabel = newStatus === 1 ? 'Published' : 'Unpublished';
             Swal.fire(`Form ${statusLabel}!`, `The form has been set to ${statusLabel.toLowerCase()} status.`, 'success');
-            // You may want to update the forms state here to reflect the changes immediately
-            fetchForms()
-            console.log("Hello")
-
-
+            fetchForms();
         } catch (error) {
             console.error('Error updating form status:', error);
             Swal.fire('Error!', 'An error occurred while updating the form status.', 'error');
@@ -86,8 +53,6 @@ function FormList({ forms, setForms,onPageChange }) {
 
     return (
         <div>
-       
-
             <TextField
                 label="Search by Form Name"
                 variant="outlined"
@@ -103,11 +68,7 @@ function FormList({ forms, setForms,onPageChange }) {
                             <TableCell>Form Name</TableCell>
                             <TableCell>Description</TableCell>
                             <TableCell>Status</TableCell>
-                            <TableCell></TableCell>
-                            <TableCell>Actions </TableCell>
-                            <TableCell></TableCell>
-
-
+                            <TableCell>Actions</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -115,38 +76,29 @@ function FormList({ forms, setForms,onPageChange }) {
                             <TableRow key={form.id}>
                                 <TableCell>{form.name}</TableCell>
                                 <TableCell>{form.description}</TableCell>
-                                <TableCell>{getStatusLabel(form.status)}</TableCell>
+                           
                                 <TableCell>
-                                <Button component={Link} to={`/forms/edit/${form.id}`} variant="outlined" size="small">
-                                    Edit
-                                </Button>
+                                    {form.status === 0 || form.status === 2 ? (
+                                        <Button onClick={() => handleStatusChange(form.id, 1)} variant="outlined" size="small"
+                                        style={{ marginLeft: '10px' }}>
+                                            Publish
+                                        </Button>
+                                    ) : (
+                                        <Button onClick={() => handleStatusChange(form.id, 0)} variant="outlined" size="small"
+                                        style={{ marginLeft: '10px' }}>
+                                            Unpublish
+                                        </Button>
+                                    )}
                                 </TableCell>
-                            
 
                                 <TableCell>
-                                {form.status === 0 ? (
-                                // If the status is Draft, display the Publish button
-                                <Button onClick={() => handleStatusChange(form.id, 1)} variant="outlined" size="small" >
-                                    Publish
-                                </Button>
-                            ) : form.status === 1 ? (
-                                // If the status is Published, display the Archive button
-                                <Button onClick={() => handleStatusChange(form.id, 2)} variant="outlined" size="small">
-                                    Archive
-                                </Button>
-                            ) : (
-                                // If the status is Archived or any other value, display the Draft button
-                                <Button onClick={() => handleStatusChange(form.id, 0)} variant="outlined" size="small">
-                                    Draft
-                                </Button>
-                            )}
 
-
-                                </TableCell>
-                                <TableCell>
-                                <Button component={Link} to={`/forms/form-details/${form.id}`} variant="outlined" size="small">
-                                    Design  Form
-                                </Button>
+                                    <Button component={Link} to={`/forms/edit/${form.id}`} variant="outlined" size="small" style={{ marginLeft: '10px' }}>
+                                        Edit
+                                    </Button>
+                                    <Button component={Link} to={`/forms/form-details/${form.id}`} variant="outlined" size="small" style={{ marginLeft: '10px' }}>
+                                        Design Form
+                                    </Button>
                                 </TableCell>
                             </TableRow>
                         ))}
@@ -165,11 +117,10 @@ function FormList({ forms, setForms,onPageChange }) {
 function getStatusLabel(status) {
     switch (status) {
         case 0:
-            return 'Draft';
+        case 2:
+            return 'Unpublished';
         case 1:
             return 'Published';
-        case 2:
-            return 'Archived';
         default:
             return '';
     }

@@ -182,7 +182,7 @@ const DataCapture = () => {
   return (
     <div className="data-capture-container">
       <div className="data-capture-card">
-        <h1>{formSchema.title.FormName}</h1>
+        <h1>{formSchema?.title}</h1>
         <div>
           {formSchema.questions.map((question) => (
             <div key={question.id} className="form-group">

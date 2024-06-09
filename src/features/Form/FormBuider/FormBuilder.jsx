@@ -26,20 +26,40 @@ const FormBuilder = ({ formVersion }) => { // Receive formVersion object as prop
 
     // Load schema from local storage (if available)
     if (storedSchema) {
-      setFormSchema(JSON.parse(storedSchema));
+      //setFormSchema(JSON.parse(storedSchema));
+
+      const parsedContent = JSON.parse(storedSchema);
+
+
+      setFormSchema({
+        //...parsedContent,
+        title: parsedContent.title,
+        questions: Array.isArray(parsedContent.questions) ? parsedContent.questions : [],
+
+        
+      });
+
+      
     }
     else{
-      //setFormSchema(JSON.parse(formVersion.jsonContent));
+     
 
       const parsedContent = JSON.parse(formVersion.jsonContent);
+
+
+
       setFormSchema({
-        ...parsedContent,
-        questions: Array.isArray(parsedContent.questions) ? parsedContent.questions : [],
+      //  ...parsedContent,
+      title: formVersion.form.name,
+      questions: Array.isArray(parsedContent.questions) ? parsedContent.questions : [],
       });
     }
 
     // Update local storage whenever the form schema changes (excluding initial load)
-  }, [formVersion.formId, formVersion.id]);
+  //}, [formVersion.formId, formVersion.id]);
+}, [formVersion.formId, formVersion.id, setFormSchema, formVersion.jsonContent, formVersion.form.name]);
+
+
 
 
   const handleSaveAsNewVersion = async () => {
@@ -77,7 +97,7 @@ const FormBuilder = ({ formVersion }) => { // Receive formVersion object as prop
     if (changeLogAndType) {
       const [changeLog, changeType] = changeLogAndType;
       try {
-        const response = await axios.post(getBaseUrl() + '/Forms/savenewformversion', {
+        await axios.post(getBaseUrl() + '/Forms/savenewformversion', {
           formId: formVersion.formId,
           creatorId: userId,
           ChangeLog: changeLog,
@@ -93,34 +113,20 @@ const FormBuilder = ({ formVersion }) => { // Receive formVersion object as prop
   };
 
   const handleUpdateVersion = async () => {
-    const { value: changeLog } = await Swal.fire({
-      title: 'Update Version',
-      input: 'text',
-      inputPlaceholder: 'Enter change log...',
-      inputLabel: 'Change Log',
-      inputValidator: (value) => {
-        if (!value) {
-          return 'Change log is required';
-        }
-      },
-    });
+    const defaultChangeLog = 'Updated the form version without any specific changes.';
 
-    if (changeLog) {
-      try {
-        const response = await axios.post(getBaseUrl() + '/Forms/updateformversion', {
-          VersionId: formVersion.id,
-          ChangeLog: changeLog,
-          JsonContent: JSON.stringify(formSchema),
-        }
-        );
-        Swal.fire('Success', 'Form version updated successfully', 'success');
-      } catch (error) {
-        console.error('Error updating form version:', error);
-        Swal.fire('Error', 'Failed to update form version', 'error');
-      }
+    try {
+      await axios.post(getBaseUrl() + '/Forms/updateformversion', {
+        VersionId: formVersion.id,
+        ChangeLog: defaultChangeLog,
+        JsonContent: JSON.stringify(formSchema),
+      });
+      Swal.fire('Success', 'Form version updated successfully', 'success');
+    } catch (error) {
+      console.error('Error updating form version:', error);
+      Swal.fire('Error', 'Failed to update form version', 'error');
     }
   };
-
   return (
     <div className="form-builder-container">
       <Grid container spacing={2}>
