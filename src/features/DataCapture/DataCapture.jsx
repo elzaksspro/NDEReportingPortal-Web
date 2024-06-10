@@ -22,6 +22,7 @@ const DataCapture = () => {
 
   useEffect(() => {
     fetchFormSchema(); // Fetch form schema on component mount
+    console.log(formSchema)
   }, []);
 
   const fetchFormSchema = async () => {
@@ -185,6 +186,7 @@ const DataCapture = () => {
         <h1>{formSchema?.title}</h1>
         <div>
           {formSchema.questions.map((question) => (
+
             <div key={question.id} className="form-group">
               <label>{question.label}</label>
               {question.type === 'text' && (
@@ -254,8 +256,8 @@ const DataCapture = () => {
                     type="range"
                     className="form-control-range"
                     name={question.identifier}
-                    min={question.minValue}
-                    max={question.maxValue}
+                    min={question.minValue || 0}
+                    max={question.maxValue || 100}
                     value={question.response || ''}
                     onChange={(event) => handleInputChange(question.id, event)}
                   />
