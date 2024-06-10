@@ -9,7 +9,8 @@ import { useAuth } from '@/features/Common/context/AuthContext'; // Adjust the i
 const DataCapture = () => {
   const FormName = "Default";
   const [formSchema, setFormSchema] = useState({ title: { FormName }, questions: [] });
-  const [initialFormSchema, setInitialFormSchema] = useState(null);
+  const [initialFormSchema, setInitialFormSchema] =  useState({ title: { FormName }, questions: [] });
+  //useState(null);
   const [formId, setFormId] = useState(null);
   const [versionId, setVersionId] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -29,10 +30,18 @@ const DataCapture = () => {
       const response = await axios.get(getBaseUrl() + `/Forms/DataCollectionForms/${paramFormId}`);
       const { formId, versionId, jsonContent } = response.data.data;
       const parsedSchema = JSON.parse(jsonContent);
+
+      console.log("parsedSchema")
+      console.log(parsedSchema)
       setFormId(formId);
       setVersionId(versionId);
       setFormSchema(parsedSchema);
+      console.log("formSchema")
+      console.log(formSchema)
       setInitialFormSchema(parsedSchema); // Save the initial schema for resetting
+      console.log("initialFormSchema")
+      console.log(initialFormSchema)
+
       setLoading(false);
     } catch (error) {
       console.error('Error fetching form schema:', error);
@@ -255,8 +264,8 @@ const DataCapture = () => {
                     type="range"
                     className="form-control-range"
                     name={question.identifier}
-                    min={question.minValue || 0}
-                    max={question.maxValue || 100}
+                    min={question.minValue }
+                    max={question.maxValue }
                     value={question.response || ''}
                     onChange={(event) => handleInputChange(question.id, event)}
                   />
@@ -265,7 +274,7 @@ const DataCapture = () => {
                       <span className="range-min">{question.minValue}</span>
                       <span className="range-max">{question.maxValue}</span>
                     </div>
-                    {console.log(`${question} Question ID: ${question.id}, Min Value: ${question.minvalue}, Max Value: ${question.maxvalue}`)}
+            
 
                 </div>
               )}
