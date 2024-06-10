@@ -86,19 +86,9 @@ button:disabled {
 
 /* DataCapture.css */
 
-.range-container {
-  display: flex;
-  align-items: center;
-}
 
-.range-values {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 5px;
-}
 
 .range-min, .range-max {
-  font-size: 12px;
+  font-size: 15px;
   color: #3558f7;
 }

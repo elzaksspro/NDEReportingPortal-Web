@@ -260,6 +260,7 @@ const DataCapture = () => {
               )}
               {question.type === 'range' && (
                 <div className="range-container">
+                <span className="range-min">{question.minValue}</span>
                   <input
                     type="range"
                     className="form-control-range"
@@ -270,10 +271,10 @@ const DataCapture = () => {
                     onChange={(event) => handleInputChange(question.id, event)}
                   />
                 
-                  <div className="range-values">
-                      <span className="range-min">{question.minValue}</span>
+         
+                 
                       <span className="range-max">{question.maxValue}</span>
-                    </div>
+                
             
 
                 </div>
