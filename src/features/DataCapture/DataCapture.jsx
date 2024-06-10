@@ -265,7 +265,7 @@ const DataCapture = () => {
                       <span className="range-min">{question.minValue}</span>
                       <span className="range-max">{question.maxValue}</span>
                     </div>
-                    {console.log(`Question ID: ${question.id}, Min Value: ${question.minValue}, Max Value: ${question.maxValue}`)}
+                    {console.log(`${question} Question ID: ${question.id}, Min Value: ${question.minValue}, Max Value: ${question.maxValue}`)}
 
                 </div>
               )}
