@@ -249,7 +249,7 @@ const DataCapture = () => {
                 />
               )}
               {question.type === 'range' && (
-                <div>
+                <div className="range-container">
                   <input
                     type="range"
                     className="form-control-range"
@@ -259,11 +259,14 @@ const DataCapture = () => {
                     value={question.response || ''}
                     onChange={(event) => handleInputChange(question.id, event)}
                   />
-                  <span className="range-values">
-                    Min: {question.minValue} | Max: {question.maxValue}
-                  </span>
+                
+                  <div className="range-values">
+                      <span className="range-min">{question.minValue}</span>
+                      <span className="range-max">{question.maxValue}</span>
+                    </div>
                 </div>
               )}
+              
               {question.type === 'geopoint' && (
                 <div>
                   <input
