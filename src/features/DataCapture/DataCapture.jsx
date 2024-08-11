@@ -31,16 +31,12 @@ const DataCapture = () => {
       const { formId, versionId, jsonContent } = response.data.data;
       const parsedSchema = JSON.parse(jsonContent);
 
-      console.log("parsedSchema")
-      console.log(parsedSchema)
+   
       setFormId(formId);
       setVersionId(versionId);
       setFormSchema(parsedSchema);
-      console.log("formSchema")
-      console.log(formSchema)
+    
       setInitialFormSchema(parsedSchema); // Save the initial schema for resetting
-      console.log("initialFormSchema")
-      console.log(initialFormSchema)
 
       setLoading(false);
     } catch (error) {
