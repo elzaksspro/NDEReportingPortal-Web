@@ -12,14 +12,8 @@ services:
         volumes:
           - .:/app
         networks:
-          reportingportal-net:
-            ipv4_address: 173.19.0.6
-          
+          - reportingportal-net
 
 networks:
   reportingportal-net:
     driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 173.19.0.0/16
