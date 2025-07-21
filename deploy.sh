@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 
 # === Config ===
-APP_DIR="/opt/Tazaar/NDEReportingPortal-Web"
+APP_DIR="/home/Tazaar/NDEReportingPortal-Web"
 DOCKER_IMAGE_NAME="reportingportalweb"
 DOCKER_COMPOSE_FILE="$APP_DIR/docker-compose.yml"
 
